@@ -36,10 +36,13 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
+  <?php
+    include "modulos/cabezote.php"
+  ?>
 
 </div>
 
 
-<script scr="js/plantilla.js"></script>
+<script scr="vistas/js/plantilla.js"></script>
 </body>
 </html>
