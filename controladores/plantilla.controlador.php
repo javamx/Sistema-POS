@@ -1,0 +1,4 @@
+<?php
+    clase ControladorPlantilla{
+        
+}
