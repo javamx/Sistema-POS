@@ -7,6 +7,9 @@
   <title>Control de inventario y Ventas</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="icon" href="vistas/img/plantilla/icon.ico">
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -52,7 +55,11 @@
           $_GET["ruta"] == "crear-venta" ||
           $_GET["ruta"] == "reportes") {
         include "modulos/".$_GET["ruta"].".php";
+      }else{
+        include"modulos/404.php";
       }
+    }else {
+      include"modulos/inicio.php";
     }
     include "modulos/footer.php";
   ?>
