@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
 
   <!-- plugins de js -->
 
-    <!-- jQuery 3 -->
+  <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -31,18 +32,23 @@
   <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
-   
+
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <?php
-    include "modulos/cabezote.php"
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <?php
+    include "modulos/cabezote.php";
+    include "modulos/menu.php";
+    include "modulos/contenido.php";
+    include "modulos/footer.php";
   ?>
 
-</div>
+  </div>
 
 
-<script scr="vistas/js/plantilla.js"></script>
+  <script scr="vistas/js/plantilla.js"></script>
 </body>
+
 </html>
