@@ -38,35 +38,34 @@
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-  <!-- Site wrapper -->
-  <div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini login-page">
     <?php
-    
-    include "modulos/cabezote.php";
-    include "modulos/menu.php";
-    if(isset($_GET["ruta"])){
-      if ($_GET["ruta"] == "inicio" ||
-          $_GET["ruta"] == "usuarios" ||
-          $_GET["ruta"] == "categorias" ||
-          $_GET["ruta"] == "productos" ||
-          $_GET["ruta"] == "clientes" ||
-          $_GET["ruta"] == "ventas" ||
-          $_GET["ruta"] == "crear-venta" ||
-          $_GET["ruta"] == "reportes") {
-        include "modulos/".$_GET["ruta"].".php";
-      }else{
-        include"modulos/404.php";
+      if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+      echo '<div class="wrapper">';
+      include "modulos/cabezote.php";
+      include "modulos/menu.php";
+      if(isset($_GET["ruta"])){
+        if ($_GET["ruta"] == "inicio" ||
+            $_GET["ruta"] == "usuarios" ||
+            $_GET["ruta"] == "categorias" ||
+            $_GET["ruta"] == "productos" ||
+            $_GET["ruta"] == "clientes" ||
+            $_GET["ruta"] == "ventas" ||
+            $_GET["ruta"] == "crear-venta" ||
+            $_GET["ruta"] == "reportes") {
+          include "modulos/".$_GET["ruta"].".php";
+        }else{
+          include"modulos/404.php";
+        }
+      }else {
+        include"modulos/inicio.php";
       }
+      include "modulos/footer.php";
+      echo '</div>';
     }else {
-      include"modulos/inicio.php";
+      include "modulos/login.php";
     }
-    include "modulos/footer.php";
   ?>
-
-  </div>
-
-
   <script scr="vistas/js/plantilla.js"></script>
 </body>
 
