@@ -8,7 +8,13 @@
                     $item = "usuario";
                     $valor = $_POST["ingUsuario"];
                     $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-                    var_dump($respuesta);
+                    if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPasword"]) {
+                        $_SESSION["iniciarSesion"] = "ok";
+                        echo '<script>Windows.location = "inicio";</script>';
+                    } else {
+                        echo '<br><div class="alert alert-danger">Error al Ingresar, vuelva a intentarlo</div>';
+                    }
+                    
                 }
             }
         }
