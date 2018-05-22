@@ -7,11 +7,11 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <a href="#">
+                <a href="inicio">
                     <i class="fa fa-dashboard"></i> Inicio</a>
             </li>
             <li>
-                <a href="#">Tablero</a>
+                <a href="#">Administrar Usuarios</a>
             </li>
         </ol>
     </section>
@@ -22,28 +22,156 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i>
-                    </button>
-                </div>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+                    Agregar Usuario
+                </button>
             </div>
             <div class="box-body">
-                Start creating your amazing application!
+                <table class=" table table-bordered table- striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Foto</th>
+                            <th>Perfil</th>
+                            <th>Estado</th>
+                            <th>Ultima sesion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jose Luis Torres</td>
+                            <td>admin</td>
+                            <td>foto</td>
+                            <td>Administrador</td>
+                            <td>
+                                <button class="btn btn-success btn-xs">Activado</button>
+                            </td>
+                            <td>19/05/2018 22:30:59</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Jose Luis Torres</td>
+                            <td>admin</td>
+                            <td>foto</td>
+                            <td>Administrador</td>
+                            <td>
+                                <button class="btn btn-success btn-xs">Activado</button>
+                            </td>
+                            <td>19/05/2018 22:30:59</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Jose Luis Torres</td>
+                            <td>admin</td>
+                            <td>foto</td>
+                            <td>Administrador</td>
+                            <td>
+                                <button class="btn btn-danger btn-xs">Inactivo</button>
+                            </td>
+                            <td>19/05/2018 22:30:59</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-                Footer
-            </div>
-            <!-- /.box-footer-->
         </div>
-        <!-- /.box -->
-
     </section>
-    <!-- /.content -->
+</div>
+<div class="modal  fade" id="modalAgregarUsuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="modal-header" style="background:#3c8dbc; color: white">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Agregar Usuario</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-key"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-users"></i>
+                                </span>
+                                <select name="nuevoPerfil" class="form-control input-lg">
+                                    <option value="">Seleccione Perfil</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="especial">Especial</option>
+                                    <option value="vendedor">Vendedor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="panel">Subir Foto Usuario</div>
+                            <input type="file" id="NuevaFoto" name="nuevaFoto">
+                            <p class="help-block">Peso maximo de Imagen 200Mb</p>
+                            <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
