@@ -27,7 +27,7 @@
                 </button>
             </div>
             <div class="box-body">
-                    <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+                <table id="tabla-data" class="table table-bordered table-striped dt-responsive">
                     <thead>
                         <tr>
                             <th style="width: 10px; align-content: center">#</th>
@@ -45,9 +45,7 @@
                             <td>1</td>
                             <td>Jose Luis Torres</td>
                             <td>admin</td>
-                            <td>
-                                <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="40px">
-                            </td>
+                            <td>foto</td>
                             <td>Administrador</td>
                             <td>
                                 <button class="btn btn-success btn-xs">Activado</button>
@@ -68,9 +66,7 @@
                             <td>1</td>
                             <td>Jose Luis Torres</td>
                             <td>admin</td>
-                            <td>
-                                <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="40px">
-                            </td>
+                            <td>foto</td>
                             <td>Administrador</td>
                             <td>
                                 <button class="btn btn-success btn-xs">Activado</button>
@@ -91,9 +87,7 @@
                             <td>1</td>
                             <td>Jose Luis Torres</td>
                             <td>admin</td>
-                            <td>
-                                <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="40px">
-                            </td>
+                            <td>foto</td>
                             <td>Administrador</td>
                             <td>
                                 <button class="btn btn-danger btn-xs">Inactivo</button>
@@ -167,9 +161,9 @@
                         </div>
                         <div class="form-group">
                             <div class="panel">Subir Foto Usuario</div>
-                            <input type="file" class="nuevaFoto" name="nuevaFoto">
-                            <p class="help-block">Peso maximo de Imagen 2Mb</p>
-                            <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail previsualizar" width="100px">
+                            <input type="file" id="NuevaFoto" name="nuevaFoto">
+                            <p class="help-block">Peso maximo de Imagen 200Mb</p>
+                            <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="100px">
                         </div>
                     </div>
                 </div>
@@ -177,10 +171,6 @@
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-                <?php
-                    $crearUsuario = new ControladorUsuarios();
-                    $crearUsuario -> ctrCrearUsuario();
-                ?>
             </form>
         </div>
     </div>

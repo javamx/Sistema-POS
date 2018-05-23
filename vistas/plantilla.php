@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +25,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
-  <!-- Data Tables -->
+    <!-- DataTables -->
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
@@ -45,26 +44,16 @@
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
 
+   <!-- DataTables -->
   <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-  <style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
 
-    .example-modal .modal {
-      background: transparent !important;
-    }
-  </style>
+  <!-- SweetAlert 2 -->
+  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 </head>
 
@@ -97,35 +86,8 @@
       include "modulos/login.php";
     }
   ?>
-  <script scr="vistas/js/plantilla.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('#tabla-data').DataTable({
-        "paging": true,
-        'lengthChange': true,
-        'searching': true,
-        'ordering': true,
-        'info': true,
-        'autoWidth': true,
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página.",
-          "zeroRecords": "Lo sentimos. No se encontraron registros.",
-          "info": "Mostrando página _PAGE_ de _PAGES_",
-          "infoEmpty": "No hay registros aún.",
-          "infoFiltered": "(filtrados de un total de _MAX_ registros)",
-          "search": "Búsqueda",
-          "LoadingRecords": "Cargando ...",
-          "Processing": "Procesando...",
-          "SearchPlaceholder": "Comience a teclear...",
-          "paginate": {
-            "previous": "Anterior",
-            "next": "Siguiente",
-          }
-        }
-      });
-    });
-  </script>
+<script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
 
 </html>
