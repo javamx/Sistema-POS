@@ -26,6 +26,11 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
+  <!-- Data Tables -->
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
@@ -39,6 +44,12 @@
   <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
+
+  <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
   <style>
     .example-modal .modal {
       position: relative;
@@ -58,7 +69,7 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini login-page">
-    <?php
+  <?php
       if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
       echo '<div class="wrapper">';
       include "modulos/cabezote.php";
@@ -87,6 +98,34 @@
     }
   ?>
   <script scr="vistas/js/plantilla.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#tabla-data').DataTable({
+        "paging": true,
+        'lengthChange': true,
+        'searching': true,
+        'ordering': true,
+        'info': true,
+        'autoWidth': true,
+        "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por página.",
+          "zeroRecords": "Lo sentimos. No se encontraron registros.",
+          "info": "Mostrando página _PAGE_ de _PAGES_",
+          "infoEmpty": "No hay registros aún.",
+          "infoFiltered": "(filtrados de un total de _MAX_ registros)",
+          "search": "Búsqueda",
+          "LoadingRecords": "Cargando ...",
+          "Processing": "Procesando...",
+          "SearchPlaceholder": "Comience a teclear...",
+          "paginate": {
+            "previous": "Anterior",
+            "next": "Siguiente",
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
