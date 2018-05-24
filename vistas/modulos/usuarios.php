@@ -33,7 +33,7 @@
                             <th style="width: 10px; align-content: center">#</th>
                             <th>Nombre</th>
                             <th>Usuario</th>
-                            <th style="width: 30px; align-content: center">Foto</th>
+                            <th style="width: 40px; align-content: center">Foto</th>
                             <th>Perfil</th>
                             <th style="width: 50px; align-content: center">Estado</th>
                             <th>Ultima sesion</th>
@@ -44,22 +44,23 @@
                     <?php
                         $item = null;
                         $valor = null;
+                        $item = null;
                         $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
                         foreach ($usuarios as $key => $value) {
-                            
+                            $item = $key + 1;
                             echo '<tr>
-                                    <td>'.$value["id"].'</td>
+                                    <td>'.$item.'</td>
                                     <td>'.$value["nombre"].'</td>
                                     <td>'.$value["usuario"].'</td>';
-                                    if ($_SESSION["foto"] != "") {
-                                        echo '<td>
-                                                <img src="'.$value["foto"].'" class="img-thumbnail" width="40px">
-                                            </td>';
-                                    }else {
-                                        echo ' <td>
-                                                <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="40px">
-                                                </td>';
-                                    }
+                                    if($value["foto"] != ""){
+
+                                        echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+                    
+                                      }else{
+                    
+                                        echo '<td><img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail" width="40px"></td>';
+                    
+                                      }
                                    
                                     echo '<td>'.$value["perfil"].'</td>
                                     <td>
@@ -68,7 +69,8 @@
                                     <td>'.$value["ultimo_login"].'</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-warning">
+                                            <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario">
+                                            
                                                 <i class="fa fa-pencil"></i>
                                             </button>
                                              <button class="btn btn-danger">
@@ -85,7 +87,7 @@
         </div>
     </section>
 </div>
-<div class="modal  fade" id="modalAgregarUsuario">
+<div class="modal fade" id="modalAgregarUsuario">
     <div class="modal-dialog">
         <div class="modal-content">
             <form role="form" method="POST" enctype="multipart/form-data">
@@ -149,6 +151,78 @@
                 <?php
                     $crearUsuario = new ControladorUsuarios();
                     $crearUsuario -> ctrCrearUsuario();
+                ?>
+            </form>
+        </div>
+    </div>
+</div>
+
+/* Editar Usuario */
+
+<div class="modal fade" id="modalEditarUsuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="modal-header" style="background:#3c8dbc; color: white">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Editar Usuario</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-key"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" id="editarUsuario" name="EditarUsuario" value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <input type="text" class="form-control input-lg" name="editarPassword" placeholder="Nueva Contraseña" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-users"></i>
+                                </span>
+                                <select name="editarPerfil" class="form-control input-lg">
+                                    <option value="" id="editarPerfil"></option>
+                                    <option value="administrador">administrador</option>
+                                    <option value="especial">especial</option>
+                                    <option value="vendedor">vendedor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="panel">Subir Foto Usuario</div>
+                            <input type="file" class="nuevaFoto" name="editarFoto">
+                            <p class="help-block">Peso maximo de Imagen 2Mb</p>
+                            <img src="vistas/img/usuarios/default/anonimo.png" class="img-thumbnail previsualizar" width="100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+                <?php
+                  /*   $crearUsuario = new ControladorUsuarios();
+                    $crearUsuario -> ctrCrearUsuario(); */
                 ?>
             </form>
         </div>
